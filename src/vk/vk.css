@@ -1,0 +1,62 @@
+/* (c) Scientec Internet Applications + Media GmbH - www.scientec.de */
+
+body {padding:15px; margin:0; font-family: Arial, Helvetica, sans-serif; height:360px; left:0; top:0;}
+#container {text-align:center; font-size:0.85em }
+table#workspace {margin:auto; width:100%; height:100%; border:2px solid #fff; border-color:#eee #444 #444 #eee; background-color:#CCCCCC; background-repeat:repeat-x;}
+table#workspace h1{margin:0; font-size:1.2em; background-color: #666; background-repeat:repeat-x; color:#fff}
+table#workspace #info{height:7em; overflow:auto;margin:10px;padding: 5px; color:#333; border:1px solid #DCD7B6; text-align:left; width:618px; font-size:0.85em }
+table#workspace #info a{color:#000 }
+table#workspace #lang{padding: 10px 0 0 10px;}
+table#workspace #selectLanguage{height:37px; width:200px; font-size:25;}
+
+table#workspace #output table{margin:5px 10px 5px 10px; border-collapse:collapse; width:95%;}
+table#workspace #output th{padding:0 0 1px 0; font-weight:normal; font-size:0.9em}
+table#workspace #output td{margin:5px 10px 5px 10px; padding:0; font-weight:normal}
+table#workspace #output input { background-color:#F0FFFF; overflow:auto; width:100%; height:20px; border:1px solid #fff; border-color:#444 #eee #eee #444}
+
+table#workspace #keyboard {text-align:center}
+table#workspace #keyboard td{padding:0px; font-size:0.1px; text-align:center;}
+table#workspace #keyboard table{padding:0px; font-size:0.1px; width:100%; }
+
+button{width:50px; height:50px; cursor:none; font-size:18px; margin:0px;}
+button#clearAreas{ margin-bottom:2px}
+
+span.help{position:relative; cursor: pointer; padding:0 3px; margin:1px; color:#000;font-size:11px; border:1px solid #DCD7B6; border-color:#D2CCA2}
+span.help:hover{ background-color:#DCD7B6;}
+#info p{margin: 0 0 0.6em 0; font-size:11px}
+#info h3{margin: 0 0 0.6em 0; font-size:12px;}
+#helpdiv{ display:none}
+
+#normalState{}
+#shiftState{}
+#altgrState{}
+#shiftAltgrState{}
+#normalStateCap{}
+#shiftStateCap{}
+#altgrStateCap{}
+#shiftAltgrStateCap {}
+
+button.Shift{width:10%;}
+button.CapsLock{width:10.5%;}
+button.BackSp{width:8%;}
+button.Enter{width:10.5%;}
+button.Space {width:40%}
+button.ClearAll {width:8%}
+
+#shiftState .Shift{color:red; font-weight:bold}
+#altgrState .AltGr{color:red; font-weight:bold}
+#shiftAltgrState .AltGr, #shiftAltgrState .Shift{color:red; font-weight:bold}
+
+#normalStateCap .CapsLock{color:red; font-weight:bold}
+#shiftStateCap .CapsLock, #shiftStateCap .Shift{color:red; font-weight:bold}
+
+#shiftAltgrStateCap .CapsLock, #shiftAltgrStateCap .AltGr, #shiftAltgrStateCap .Shift {color:red; font-weight:bold}
+
+div#disclaimer { text-align:center; color:#fff; margin:0 auto;; width:600px; font-size:0.70em}
+div#copyright { padding: 5px; text-align:center; font-size:0.75em;color:#fff}
+div#copyright a{color:#fff}
+
+iframe#ifr {width:1px; height:1px; visibility:hidden}
+#plugin{width:500px; margin: 20px auto; text-align:center} 
+.noshow {display:none}
+.show {display:table}

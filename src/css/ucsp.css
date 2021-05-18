@@ -1,0 +1,209 @@
+.background{
+	MARGIN: 2px 2px 10px; COLOR: #000;  BACKGROUND-COLOR: #eaeff4; 
+}
+.textlogo1 {
+	FONT-SIZE: 25px; FONT-FAMILY:      verdana, arial, sans-serif; color: #003366
+}
+.textlogomini{
+	FONT-SIZE: 18px; FONT-FAMILY:      verdana, arial, sans-serif; color: #003366
+}
+.image{
+	border: 0; cursor: pointer;
+}
+
+.header {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+.header {
+	FONT-SIZE: 20px
+}
+.header {
+	FONT-WEIGHT: bold
+}
+.header {
+	COLOR: #000
+}
+.header2 {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+.header2 {
+	FONT-SIZE: 14px
+}
+.header2 {
+	FONT-WEIGHT: bold
+}
+.header2 {
+	COLOR: #003366
+}
+.background A:link {
+	COLOR: #003366
+}
+.background A:visited {
+	COLOR: #006699
+}
+.background A:hover {
+	COLOR: #f30
+}
+.background A:link {
+	TEXT-DECORATION: none
+}
+.background A:visited {
+	TEXT-DECORATION: none
+}
+.background A:hover {
+	TEXT-DECORATION: none
+}
+.nav {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+.nav {
+	FONT-SIZE: 16px
+}
+.nav {
+	FONT-WEIGHT: bold
+}
+.navbutton {
+	BORDER-RIGHT: #003366 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #eaeff4 1px solid; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 10px; PADDING-BOTTOM: 1px; MARGIN: 2px; BORDER-LEFT: ##eaeff4 1px solid; COLOR: #036; PADDING-TOP: 1px; BORDER-BOTTOM: #036 1px solid; FONT-FAMILY: verdana, arial, sans-serif; BACKGROUND-COLOR: #eaeff4
+}
+.text {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+.text {
+	FONT-SIZE: 12px
+}
+
+
+.Container {
+    padding: 0;
+    margin: 0;
+}
+
+.Container li {
+    list-style-type: none;
+}
+
+/* indent for all tree children excepts root */
+.Node {
+    background-image : url(/img/i.gif);
+    background-position : top left;
+    background-repeat : repeat-y;
+    margin-left: 27px;
+    zoom: 1;
+}
+
+.IsRoot {
+    margin-left: 0;
+}
+
+
+/* left vertical line (grid) for all nodes */
+.IsLast {
+    background-image: url(/img/i_half.gif);
+    background-repeat : no-repeat;
+}
+ 
+.ExpandOpen .Expand {
+    background-image: url(/img/expand_minus.gif);
+}
+ 
+/* closed is higher priority than open */
+.ExpandClosed .Expand {
+    background-image: url(/img/expand_plus.gif);
+}
+ 
+/* highest priority */
+.ExpandLeaf .Expand {
+    background-image: url(/img/expand_leaf.gif);
+}
+
+.Content {
+    min-height: 18px;
+    margin-left:27px;
+}
+
+* html  .Content {
+    height: 18px; 
+}
+
+.Expand {
+    width: 27px;
+    height: 27px;
+    float: left;
+}
+
+.ExpandOpen .Container {
+	display: block;
+}
+
+.ExpandClosed .Container {
+	display: none;
+}
+
+.ExpandOpen .Expand, .ExpandClosed .Expand {
+	cursor: pointer;
+}
+.ExpandLeaf .Expand {
+	cursor: auto;
+}
+
+
+button {
+	background: LightGray;
+}
+
+font {
+	font-family: Helvetica, Arial, Verdana;
+}
+
+table.border_table {
+	border-color: black;
+	border-style: solid;
+	border-width: 0 1px 1px 0;
+}
+
+table.border_table td, table.border_table th {
+border-color: black;
+border-style: solid;
+border-width: 1px 0 0 1px;
+empty-cells: show;
+}
+
+#input_table td, #output_table td {
+	height: 25px;
+}
+
+
+.test_select, .test_split, .test_select > textarea, .test_select > div
+{
+	float: left;
+}
+
+.test_select select
+{
+	width: 320px;
+	overflow: hidden;
+}
+
+.test_split
+{
+	width: 15px;
+}
+
+.test_select > textarea
+{
+	width: 230px;
+	height: auto;
+}
+
+.delete_button
+{
+	margin-top: 6px;
+	margin-left: 10px;
+	height: 40px;
+	width: 80px;
+	text-align: center;
+	line-height: 37px;
+	background-color: #772211;
+	color: white;
+	border-radius: 10px;
+}

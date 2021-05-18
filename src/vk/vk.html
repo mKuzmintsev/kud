@@ -1,0 +1,645 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" >
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="vk.js" type="text/javascript"></script>
+    <link rel='stylesheet' type='text/css' href="vk.css"/>
+</head>
+<body onload='init()' onMouseUp="clearSel()" onMouseMove="setActivity()">
+<div id="container">
+<table id="workspace">
+    <tr>
+	<td id="lang">
+    	    <select name="selectLanguage" id="selectLanguage" onChange="getKeyboard(this)">
+    		<option value="EnglishUS" keys="en" style="text-align:center; height:35px">ENGLISH(US)</option>
+    	        <option value="Russian" keys="ru" style="text-align:center; height:35px">РУССКИЙ</option>
+    	    </select>
+        <script type="text/javascript">document.getElementById("selectLanguage").options[0].selected=true</script>
+        </td>
+        <td id="close" align='right'>
+	    <button type="button" key='Esc' name="" onmouseover="showName(this)">Esc</button>
+	</td>
+    </tr>
+    
+    <tr>
+      <td id="output" colspan='2'>
+        <table id="textContainer">
+          <tr>
+            <td>
+        	<input type="text" id="textField" onLoad='clear(this)'></textarea>
+    	    </td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td id="keyboard" colspan='2'> 
+        <table id='normalState_en' class="show">  
+    	    <tr>    
+    		<td> 
+    		    <button type="button" key='96' name="&#96; Grave Accent" onmouseover="showName(this)">&#96;</button>      
+    		    <button type="button" key='49' name="&#49; Digit One" onmouseover="showName(this)">&#49;</button>     
+    		    <button type="button" key='50' name="&#50; Digit Two" onmouseover="showName(this)">&#50;</button>      
+    		    <button type="button" key='51' name="&#51; Digit Three" onmouseover="showName(this)">&#51;</button>      
+    		    <button type="button" key='52' name="&#52; Digit Four" onmouseover="showName(this)">&#52;</button>      
+    		    <button type="button" key='53' name="&#53; Digit Five" onmouseover="showName(this)">&#53;</button>     
+    		    <button type="button" key='54' name="&#54; Digit Six" onmouseover="showName(this)">&#54;</button>      
+    		    <button type="button" key='55' name="&#55; Digit Seven" onmouseover="showName(this)">&#55;</button>     
+    		    <button type="button" key='56' name="&#56; Digit Eight" onmouseover="showName(this)">&#56;</button>      
+    		    <button type="button" key='57' name="&#57; Digit Nine" onmouseover="showName(this)">&#57;</button>      
+    		    <button type="button" key='48' name="&#48; Digit Zero" onmouseover="showName(this)">&#48;</button>      
+    		    <button type="button" key='45' name="&#45; Hyphen-Minus" onmouseover="showName(this)">&#45;</button>      
+    		    <button type="button" key='61' name="&#61; Equals Sign" onmouseover="showName(this)">&#61;</button>      
+    		    <button type="button" key='BackSp'class="BackSp" name="" onmouseover="showName(this)">BackSp</button>
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>
+    		    <button type="button" key='113' name="&#113; Latin Small Letter Q" onmouseover="showName(this)">&#113;</button>      
+    		    <button type="button" key='119' name="&#119; Latin Small Letter W" onmouseover="showName(this)">&#119;</button>      
+    		    <button type="button" key='101' name="&#101; Latin Small Letter E" onmouseover="showName(this)">&#101;</button>      
+    		    <button type="button" key='114' name="&#114; Latin Small Letter R" onmouseover="showName(this)">&#114;</button>      
+    		    <button type="button" key='116' name="&#116; Latin Small Letter T" onmouseover="showName(this)">&#116;</button>      
+    		    <button type="button" key='121' name="&#121; Latin Small Letter Y" onmouseover="showName(this)">&#121;</button>      
+    		    <button type="button" key='117' name="&#117; Latin Small Letter U" onmouseover="showName(this)">&#117;</button>      
+    		    <button type="button" key='105' name="&#105; Latin Small Letter I" onmouseover="showName(this)">&#105;</button>      
+    		    <button type="button" key='111' name="&#111; Latin Small Letter O" onmouseover="showName(this)">&#111;</button>      
+    		    <button type="button" key='112' name="&#112; Latin Small Letter P" onmouseover="showName(this)">&#112;</button>      
+    		    <button type="button" key='91' name="&#91; Left Square Bracket" onmouseover="showName(this)">&#91;</button>      
+    		    <button type="button" key='93' name="&#93; Right Square Bracket" onmouseover="showName(this)">&#93;</button>      
+    		    <button type="button" key='92' name="&#92; Reverse Solidus" onmouseover="showName(this)">&#92;</button>    
+    		    <button type="button" key='ClearAll' class="ClearAll" name="" onmouseover="showName(this)">ClearAll</button>
+    		</td>
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" onclick="showTab('CapsLock')" class="CapsLock" name="Click to change keyboard state" onmouseover="showName(this)">Caps</button>      
+    		    <button type="button" key='97' name="&#97; Latin Small Letter A" onmouseover="showName(this)">&#97;</button>      
+    		    <button type="button" key='115' name="&#115; Latin Small Letter S" onmouseover="showName(this)">&#115;</button>      
+    		    <button type="button" key='100' name="&#100; Latin Small Letter D" onmouseover="showName(this)">&#100;</button>     
+    		    <button type="button" key='102' name="&#102; Latin Small Letter F" onmouseover="showName(this)">&#102;</button>      
+    		    <button type="button" key='103' name="&#103; Latin Small Letter G" onmouseover="showName(this)">&#103;</button>      
+    		    <button type="button" key='104' name="&#104; Latin Small Letter H" onmouseover="showName(this)">&#104;</button>      
+    		    <button type="button" key='106' name="&#106; Latin Small Letter J" onmouseover="showName(this)">&#106;</button>      
+    		    <button type="button" key='107' name="&#107; Latin Small Letter K" onmouseover="showName(this)">&#107;</button>      
+    		    <button type="button" key='108' name="&#108; Latin Small Letter L" onmouseover="showName(this)">&#108;</button>     
+    		    <button type="button" key='59' name="&#59; Semicolon" onmouseover="showName(this)">&#59;</button>     
+    		    <button type="button" key='39' name="&#39; Apostrophe" onmouseover="showName(this)">&#39;</button>      
+    		    <button type="button" key='Enter' class="Enter" name="" onmouseover="showName(this)">Enter</button>    
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" onclick="showTab('Shift')" class="Shift" name="Click to change keyboard state" onmouseover="showName(this)">Shift</button>    
+    		    <button type="button" key='122' name="&#122; Latin Small Letter Z" onmouseover="showName(this)">&#122;</button>      
+    		    <button type="button" key='120' name="&#120; Latin Small Letter X" onmouseover="showName(this)">&#120;</button>      
+    		    <button type="button" key='99' name="&#99; Latin Small Letter C" onmouseover="showName(this)">&#99;</button>      
+    		    <button type="button" key='118' name="&#118; Latin Small Letter V" onmouseover="showName(this)">&#118;</button>      
+    		    <button type="button" key='98' name="&#98; Latin Small Letter B" onmouseover="showName(this)">&#98;</button>      
+    		    <button type="button" key='110' name="&#110; Latin Small Letter N" onmouseover="showName(this)">&#110;</button>      
+    		    <button type="button" key='109' name="&#109; Latin Small Letter M" onmouseover="showName(this)">&#109;</button>      
+    		    <button type="button" key='44' name="&#44; Comma" onmouseover="showName(this)">&#44;</button>      
+    		    <button type="button" key='46' name="&#46; Full Stop" onmouseover="showName(this)">&#46;</button>      
+    		    <button type="button" key='47' name="&#47; Solidus" onmouseover="showName(this)">&#47;</button>      
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key=' ' class="Space" name="" onmouseover="showName(this)">&nbsp;</button>      
+    		</td>  
+    	    </tr>
+    	</table>
+    	<table id='shiftState_en' class='noshow'>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key='126' name="&#126; Tilde" onmouseover="showName(this)">&#126;</button>      
+    		    <button type="button" key='33' name="&#33; Exclamation Mark" onmouseover="showName(this)">&#33;</button>      
+    		    <button type="button" key='64' name="&#64; Commercial At" onmouseover="showName(this)">&#64;</button>      
+    		    <button type="button" key='35' name="&#35; Number Sign" onmouseover="showName(this)">&#35;</button>      
+    		    <button type="button" key='36' name="&#36; Dollar Sign" onmouseover="showName(this)">&#36;</button>      
+    		    <button type="button" key='37' name="&#37; Percent Sign" onmouseover="showName(this)">&#37;</button>      
+    		    <button type="button" key='94' name="&#94; Circumflex Accent" onmouseover="showName(this)">&#94;</button>      
+    		    <button type="button" key='38' name="&#38; Ampersand" onmouseover="showName(this)">&#38;</button>      
+    		    <button type="button" key='42' name="&#42; Asterisk" onmouseover="showName(this)">&#42;</button>      
+    		    <button type="button" key='40' name="&#40; Left Parenthesis" onmouseover="showName(this)">&#40;</button>      
+    		    <button type="button" key='41' name="&#41; Right Parenthesis" onmouseover="showName(this)">&#41;</button>      
+    		    <button type="button" key='95' name="&#95; Low Line" onmouseover="showName(this)">&#95;</button>     
+    		    <button type="button" key='43' name="&#43; Plus Sign" onmouseover="showName(this)">&#43;</button>      
+    		    <button type="button" key='BackSp' class="BackSp" name="" onmouseover="showName(this)">BackSp</button>    
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key='81' name="&#81; Latin Capital Letter Q" onmouseover="showName(this)">&#81;</button>      
+    		    <button type="button" key='87' name="&#87; Latin Capital Letter W" onmouseover="showName(this)">&#87;</button>      
+    		    <button type="button" key='69' name="&#69; Latin Capital Letter E" onmouseover="showName(this)">&#69;</button>      
+    		    <button type="button" key='82' name="&#82; Latin Capital Letter R" onmouseover="showName(this)">&#82;</button>      
+    		    <button type="button" key='84' name="&#84; Latin Capital Letter T" onmouseover="showName(this)">&#84;</button>      
+    		    <button type="button" key='89' name="&#89; Latin Capital Letter Y" onmouseover="showName(this)">&#89;</button>      
+    		    <button type="button" key='85' name="&#85; Latin Capital Letter U" onmouseover="showName(this)">&#85;</button>      
+    		    <button type="button" key='73' name="&#73; Latin Capital Letter I" onmouseover="showName(this)">&#73;</button>      
+    		    <button type="button" key='79' name="&#79; Latin Capital Letter O" onmouseover="showName(this)">&#79;</button>      
+    		    <button type="button" key='80' name="&#80; Latin Capital Letter P" onmouseover="showName(this)">&#80;</button>      
+    		    <button type="button" key='123' name="&#123; Left Curly Bracket" onmouseover="showName(this)">&#123;</button>      
+    		    <button type="button" key='125' name="&#125; Right Curly Bracket" onmouseover="showName(this)">&#125;</button>      
+    		    <button type="button" key='124' name="&#124; Vertical Line" onmouseover="showName(this)">&#124;</button>    
+    		    <button type="button" key='ClearAll' class="ClearAll" name="" onmouseover="showName(this)">ClearAll</button>
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" onclick="showTab('CapsLock')" class="CapsLock" name="Click to change keyboard state" onmouseover="showName(this)">Caps</button>   
+    		    <button type="button" key='65' name="&#65; Latin Capital Letter A" onmouseover="showName(this)">&#65;</button>      
+    		    <button type="button" key='83' name="&#83; Latin Capital Letter S" onmouseover="showName(this)">&#83;</button>      
+    		    <button type="button" key='68' name="&#68; Latin Capital Letter D" onmouseover="showName(this)">&#68;</button>      
+    		    <button type="button" key='70' name="&#70; Latin Capital Letter F" onmouseover="showName(this)">&#70;</button>      
+    		    <button type="button" key='71' name="&#71; Latin Capital Letter G" onmouseover="showName(this)">&#71;</button>      
+    		    <button type="button" key='72' name="&#72; Latin Capital Letter H" onmouseover="showName(this)">&#72;</button>      
+    		    <button type="button" key='74' name="&#74; Latin Capital Letter J" onmouseover="showName(this)">&#74;</button>      
+    		    <button type="button" key='75' name="&#75; Latin Capital Letter K" onmouseover="showName(this)">&#75;</button>      
+    		    <button type="button" key='76' name="&#76; Latin Capital Letter L" onmouseover="showName(this)">&#76;</button>      
+    		    <button type="button" key='58' name="&#58; Colon" onmouseover="showName(this)">&#58;</button>      
+    		    <button type="button" key='34' name="&#34; Quotation Mark" onmouseover="showName(this)">&#34;</button>      
+    		    <button type="button" key='Enter' class="Enter" name="" onmouseover="showName(this)">Enter</button>    
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" onclick="showTab('Shift')" class="Shift" name="Click to change keyboard state" onmouseover="showName(this)">Shift</button>
+    		     <button type="button" key='90' name="&#90; Latin Capital Letter Z" onmouseover="showName(this)">&#90;</button>      
+    		     <button type="button" key='88' name="&#88; Latin Capital Letter X" onmouseover="showName(this)">&#88;</button>      
+    		     <button type="button" key='67' name="&#67; Latin Capital Letter C" onmouseover="showName(this)">&#67;</button>      
+    		     <button type="button" key='86' name="&#86; Latin Capital Letter V" onmouseover="showName(this)">&#86;</button>      
+    		     <button type="button" key='66' name="&#66; Latin Capital Letter B" onmouseover="showName(this)">&#66;</button>      
+    		     <button type="button" key='78' name="&#78; Latin Capital Letter N" onmouseover="showName(this)">&#78;</button>      
+    		     <button type="button" key='77' name="&#77; Latin Capital Letter M" onmouseover="showName(this)">&#77;</button>      
+    		     <button type="button" key='60' name="&#60; Less-Than Sign" onmouseover="showName(this)">&#60;</button>      
+    		     <button type="button" key='62' name="&#62; Greater-Than Sign" onmouseover="showName(this)">&#62;</button>      
+    		     <button type="button" key='63'  name="&#63; Question Mark" onmouseover="showName(this)">&#63;</button>      
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key=' ' class="Space" name="" onmouseover="showName(this)">&nbsp;</button>      
+    		</td>  
+    	    </tr>
+    	</table>
+    	<table id='normalStateCap_en' class='noshow'>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key='96' name="&#96; Grave Accent" onmouseover="showName(this)">&#96;</button>      
+    		    <button type="button" key='49' name="&#49; Digit One" onmouseover="showName(this)">&#49;</button>      
+    		    <button type="button" key='50' name="&#50; Digit Two" onmouseover="showName(this)">&#50;</button>     
+    		    <button type="button" key='51' name="&#51; Digit Three" onmouseover="showName(this)">&#51;</button>     
+    		    <button type="button" key='52' name="&#52; Digit Four" onmouseover="showName(this)">&#52;</button>      
+    		    <button type="button" key='53' name="&#53; Digit Five" onmouseover="showName(this)">&#53;</button>      
+    		    <button type="button" key='54' name="&#54; Digit Six" onmouseover="showName(this)">&#54;</button>     
+    		    <button type="button" key='55' name="&#55; Digit Seven" onmouseover="showName(this)">&#55;</button>      
+    		    <button type="button" key='56' name="&#56; Digit Eight" onmouseover="showName(this)">&#56;</button>      
+    		    <button type="button" key='57' name="&#57; Digit Nine" onmouseover="showName(this)">&#57;</button>      
+    		    <button type="button" key='48' name="&#48; Digit Zero" onmouseover="showName(this)">&#48;</button>      
+    		    <button type="button" key='45' name="&#45; Hyphen-Minus" onmouseover="showName(this)">&#45;</button>      
+    		    <button type="button" key='61' name="&#61; Equals Sign" onmouseover="showName(this)">&#61;</button>      
+    		    <button type="button" key='BackSp' class="BackSp" name="" onmouseover="showName(this)">BackSp</button>    
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key='81' name="&#81; Latin Capital Letter Q" onmouseover="showName(this)">&#81;</button>      
+    		    <button type="button" key='87' name="&#87; Latin Capital Letter W" onmouseover="showName(this)">&#87;</button>      
+    		    <button type="button" key='69' name="&#69; Latin Capital Letter E" onmouseover="showName(this)">&#69;</button>      
+    		    <button type="button" key='82' name="&#82; Latin Capital Letter R" onmouseover="showName(this)">&#82;</button>      
+    		    <button type="button" key='84' name="&#84; Latin Capital Letter T" onmouseover="showName(this)">&#84;</button>      
+    		    <button type="button" key='89' name="&#89; Latin Capital Letter Y" onmouseover="showName(this)">&#89;</button>      
+    		    <button type="button" key='85' name="&#85; Latin Capital Letter U" onmouseover="showName(this)">&#85;</button>      
+    		    <button type="button" key='73' name="&#73; Latin Capital Letter I" onmouseover="showName(this)">&#73;</button>      
+    		    <button type="button" key='79' name="&#79; Latin Capital Letter O" onmouseover="showName(this)">&#79;</button>      
+    		    <button type="button" key='80' name="&#80; Latin Capital Letter P" onmouseover="showName(this)">&#80;</button>      
+    		    <button type="button" key='91' name="&#91; Left Square Bracket" onmouseover="showName(this)">&#91;</button>      
+    		    <button type="button" key='93' name="&#93; Right Square Bracket" onmouseover="showName(this)">&#93;</button>      
+    		    <button type="button" key='92' name="&#92; Reverse Solidus" onmouseover="showName(this)">&#92;</button>    
+    		    <button type="button" key='ClearAll' class="ClearAll" name="" onmouseover="showName(this)">ClearAll</button>
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" onclick="showTab('CapsLock')" class="CapsLock" name="Click to change keyboard state" onmouseover="showName(this)">Caps</button>      
+    		    <button type="button" key='65' name="&#65; Latin Capital Letter A" onmouseover="showName(this)">&#65;</button>      
+    		    <button type="button" key='83' name="&#83; Latin Capital Letter S" onmouseover="showName(this)">&#83;</button>      
+    		    <button type="button" key='68' name="&#68; Latin Capital Letter D" onmouseover="showName(this)">&#68;</button>      
+    		    <button type="button" key='70' name="&#70; Latin Capital Letter F" onmouseover="showName(this)">&#70;</button>      
+    		    <button type="button" key='71' name="&#71; Latin Capital Letter G" onmouseover="showName(this)">&#71;</button>      
+    		    <button type="button" key='72' name="&#72; Latin Capital Letter H" onmouseover="showName(this)">&#72;</button>      
+    		    <button type="button" key='74' name="&#74; Latin Capital Letter J" onmouseover="showName(this)">&#74;</button>      
+    		    <button type="button" key='75' name="&#75; Latin Capital Letter K" onmouseover="showName(this)">&#75;</button>      
+    		    <button type="button" key='76' name="&#76; Latin Capital Letter L" onmouseover="showName(this)">&#76;</button>      
+    		    <button type="button" key='59' name="&#59; Semicolon" onmouseover="showName(this)">&#59;</button>      
+    		    <button type="button" key='39' name="&#39; Apostrophe" onmouseover="showName(this)">&#39;</button>      
+    		    <button type="button" key='Enter' class="Enter" name="" onmouseover="showName(this)">Enter</button>    
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" onclick="showTab('Shift')" class="Shift" name="Click to change keyboard state" onmouseover="showName(this)">Shift</button>
+    		    <button type="button" key='90' name="&#90; Latin Capital Letter Z" onmouseover="showName(this)">&#90;</button>     
+    		    <button type="button" key='88' name="&#88; Latin Capital Letter X" onmouseover="showName(this)">&#88;</button>      
+    		    <button type="button" key='67' name="&#67; Latin Capital Letter C" onmouseover="showName(this)">&#67;</button>      
+    		    <button type="button" key='86' name="&#86; Latin Capital Letter V" onmouseover="showName(this)">&#86;</button>      
+    		    <button type="button" key='66' name="&#66; Latin Capital Letter B" onmouseover="showName(this)">&#66;</button>      
+    		    <button type="button" key='78' name="&#78; Latin Capital Letter N" onmouseover="showName(this)">&#78;</button>      
+    		    <button type="button" key='77' name="&#77; Latin Capital Letter M" onmouseover="showName(this)">&#77;</button>      
+    		    <button type="button" key='44' name="&#44; Comma" onmouseover="showName(this)">&#44;</button>      
+    		    <button type="button" key='46' name="&#46; Full Stop" onmouseover="showName(this)">&#46;</button>      
+    		    <button type="button" key='47' name="&#47; Solidus" onmouseover="showName(this)">&#47;</button>      
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key=' ' class="Space" name="" onmouseover="showName(this)">&nbsp;</button>      
+    		</td>  
+    	    </tr>
+    	</table>
+	<table id='shiftStateCap_en' class='noshow'>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key='126' name="&#126; Tilde" onmouseover="showName(this)">&#126;</button>      
+    		    <button type="button" key='33' name="&#33; Exclamation Mark" onmouseover="showName(this)">&#33;</button>      
+    		    <button type="button" key='64' name="&#64; Commercial At" onmouseover="showName(this)">&#64;</button>      
+    		    <button type="button" key='35' name="&#35; Number Sign" onmouseover="showName(this)">&#35;</button>      
+    		    <button type="button" key='36' name="&#36; Dollar Sign" onmouseover="showName(this)">&#36;</button>      
+    		    <button type="button" key='37' name="&#37; Percent Sign" onmouseover="showName(this)">&#37;</button>      
+    		    <button type="button" key='94' name="&#94; Circumflex Accent" onmouseover="showName(this)">&#94;</button>      
+    		    <button type="button" key='38' name="&#38; Ampersand" onmouseover="showName(this)">&#38;</button>      
+    		    <button type="button" key='42' name="&#42; Asterisk" onmouseover="showName(this)">&#42;</button>      
+    		    <button type="button" key='40' name="&#40; Left Parenthesis" onmouseover="showName(this)">&#40;</button>      
+    		    <button type="button" key='41' name="&#41; Right Parenthesis" onmouseover="showName(this)">&#41;</button>      
+    		    <button type="button" key='95' name="&#95; Low Line" onmouseover="showName(this)">&#95;</button>      
+    		    <button type="button" key='43' name="&#43; Plus Sign" onmouseover="showName(this)">&#43;</button>      
+    		    <button type="button" key='BackSp' class="BackSp" name="" onmouseover="showName(this)">BackSp</button>   
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>
+    		    <button type="button" key='' class="Tab" disabled="disabled" name="" onmouseover="showName(this)">Tab</button>      
+    		    <button type="button" key='113' name="&#113; Latin Small Letter Q" onmouseover="showName(this)">&#113;</button>      
+    		    <button type="button" key='119' name="&#119; Latin Small Letter W" onmouseover="showName(this)">&#119;</button>      
+    		    <button type="button" key='101' name="&#101; Latin Small Letter E" onmouseover="showName(this)">&#101;</button>      
+    		    <button type="button" key='114' name="&#114; Latin Small Letter R" onmouseover="showName(this)">&#114;</button>      
+    		    <button type="button" key='116' name="&#116; Latin Small Letter T" onmouseover="showName(this)">&#116;</button>      
+    		    <button type="button" key='121' name="&#121; Latin Small Letter Y" onmouseover="showName(this)">&#121;</button>      
+    		    <button type="button" key='117' name="&#117; Latin Small Letter U" onmouseover="showName(this)">&#117;</button>      
+    		    <button type="button" key='105' name="&#105; Latin Small Letter I" onmouseover="showName(this)">&#105;</button>      
+    		    <button type="button" key='111' name="&#111; Latin Small Letter O" onmouseover="showName(this)">&#111;</button>      
+    		    <button type="button" key='112' name="&#112; Latin Small Letter P" onmouseover="showName(this)">&#112;</button>      
+    		    <button type="button" key='123' name="&#123; Left Curly Bracket" onmouseover="showName(this)">&#123;</button>      
+    		    <button type="button" key='125' name="&#125; Right Curly Bracket" onmouseover="showName(this)">&#125;</button>      
+    		    <button type="button" key='124' name="&#124; Vertical Line" onmouseover="showName(this)">&#124;</button>   
+    		    <button type="button" key='ClearAll' class="ClearAll" name="" onmouseover="showName(this)">ClearAll</button> 
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" onclick="showTab('CapsLock')" class="CapsLock" name="Click to change keyboard state" onmouseover="showName(this)">Caps</button>      
+    		    <button type="button" key='97' name="&#97; Latin Small Letter A" onmouseover="showName(this)">&#97;</button>      
+    		    <button type="button" key='115' name="&#115; Latin Small Letter S" onmouseover="showName(this)">&#115;</button>      
+    		    <button type="button" key='100' name="&#100; Latin Small Letter D" onmouseover="showName(this)">&#100;</button>      
+    		    <button type="button" key='102' name="&#102; Latin Small Letter F" onmouseover="showName(this)">&#102;</button>      
+    		    <button type="button" key='103' name="&#103; Latin Small Letter G" onmouseover="showName(this)">&#103;</button>      
+    		    <button type="button" key='104' name="&#104; Latin Small Letter H" onmouseover="showName(this)">&#104;</button>      
+    		    <button type="button" key='106' name="&#106; Latin Small Letter J" onmouseover="showName(this)">&#106;</button>      
+    		    <button type="button" key='107' name="&#107; Latin Small Letter K" onmouseover="showName(this)">&#107;</button>      
+    		    <button type="button" key='108' name="&#108; Latin Small Letter L" onmouseover="showName(this)">&#108;</button>      
+    		    <button type="button" key='58' name="&#58; Colon" onmouseover="showName(this)">&#58;</button>      
+    		    <button type="button" key='34' name="&#34; Quotation Mark" onmouseover="showName(this)">&#34;</button>      
+    		    <button type="button" key='Enter' class="Enter" name="" onmouseover="showName(this)">Enter</button>    
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" onclick="showTab('Shift')" class="Shift" name="Click to change keyboard state" onmouseover="showName(this)">Shift</button>      
+    		    <button type="button" key='122' name="&#122; Latin Small Letter Z" onmouseover="showName(this)">&#122;</button>      
+    		    <button type="button" key='120' name="&#120; Latin Small Letter X" onmouseover="showName(this)">&#120;</button>      
+    		    <button type="button" key='99' name="&#99; Latin Small Letter C" onmouseover="showName(this)">&#99;</button>      
+    		    <button type="button" key='118' name="&#118; Latin Small Letter V" onmouseover="showName(this)">&#118;</button>      
+    		    <button type="button" key='98' name="&#98; Latin Small Letter B" onmouseover="showName(this)">&#98;</button>      
+    		    <button type="button" key='110' name="&#110; Latin Small Letter N" onmouseover="showName(this)">&#110;</button>      
+    		    <button type="button" key='109' name="&#109; Latin Small Letter M" onmouseover="showName(this)">&#109;</button>      
+    		    <button type="button" key='60' name="&#60; Less-Than Sign" onmouseover="showName(this)">&#60;</button>      
+    		    <button type="button" key='62' name="&#62; Greater-Than Sign" onmouseover="showName(this)">&#62;</button>      
+    		    <button type="button" key='63' name="&#63; Question Mark" onmouseover="showName(this)">&#63;</button>      
+    		</td>  
+    	    </tr>  
+    	    <tr>    
+    		<td>      
+    		    <button type="button" key=' ' class="Space" name="" onmouseover="showName(this)">&nbsp;</button>     
+    		</td>  
+    	    </tr>
+    	</table>      
+    	<table id='normalState_ru' class='noshow'>  
+    <tr>
+	<td>      
+	    <button type="button" key='1105' name="&#1105; Cyrillic Small Letter Io" onmouseover="showName(this)">&#1105;</button>      
+	    <button type="button" key='49' name="&#49; Digit One" onmouseover="showName(this)">&#49;</button>      
+	    <button type="button" key='50' name="&#50; Digit Two" onmouseover="showName(this)">&#50;</button>      
+	    <button type="button" key='51' name="&#51; Digit Three" onmouseover="showName(this)">&#51;</button>      
+	    <button type="button" key='52' name="&#52; Digit Four" onmouseover="showName(this)">&#52;</button>      
+	    <button type="button" key='53' name="&#53; Digit Five" onmouseover="showName(this)">&#53;</button>      
+	    <button type="button" key='54' name="&#54; Digit Six" onmouseover="showName(this)">&#54;</button>     
+	    <button type="button" key='55' name="&#55; Digit Seven" onmouseover="showName(this)">&#55;</button>     
+	    <button type="button" key='56' name="&#56; Digit Eight" onmouseover="showName(this)">&#56;</button>     
+	    <button type="button" key='57' name="&#57; Digit Nine" onmouseover="showName(this)">&#57;</button>     
+	    <button type="button" key='48' name="&#48; Digit Zero" onmouseover="showName(this)">&#48;</button>      
+	    <button type="button" key='45' name="&#45; Hyphen-Minus" onmouseover="showName(this)">&#45;</button>      
+	    <button type="button" key='61' name="&#61; Equals Sign" onmouseover="showName(this)">&#61;</button>      
+	    <button type="button" key='BackSp' class="BackSp" name="" onmouseover="showName(this)">BackSp</button>   
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" key='1081' name="&#1081; Cyrillic Small Letter Short I" onmouseover="showName(this)">&#1081;</button> 
+	    <button type="button" key='1094' name="&#1094; Cyrillic Small Letter Tse" onmouseover="showName(this)">&#1094;</button>     
+	    <button type="button" key='1091' name="&#1091; Cyrillic Small Letter U" onmouseover="showName(this)">&#1091;</button>      
+	    <button type="button" key='1082' name="&#1082; Cyrillic Small Letter Ka" onmouseover="showName(this)">&#1082;</button>      
+	    <button type="button" key='1077' name="&#1077; Cyrillic Small Letter Ie" onmouseover="showName(this)">&#1077;</button>      
+	    <button type="button" key='1085' name="&#1085; Cyrillic Small Letter En" onmouseover="showName(this)">&#1085;</button>      
+	    <button type="button" key='1075' name="&#1075; Cyrillic Small Letter Ghe" onmouseover="showName(this)">&#1075;</button>      
+	    <button type="button" key='1096' name="&#1096; Cyrillic Small Letter Sha" onmouseover="showName(this)">&#1096;</button>      
+	    <button type="button" key='1097' name="&#1097; Cyrillic Small Letter Shcha" onmouseover="showName(this)">&#1097;</button>      
+	    <button type="button" key='1079' name="&#1079; Cyrillic Small Letter Ze" onmouseover="showName(this)">&#1079;</button>      
+	    <button type="button" key='1093' name="&#1093; Cyrillic Small Letter Ha" onmouseover="showName(this)">&#1093;</button>      
+	    <button type="button" key='1098' name="&#1098; Cyrillic Small Letter Hard Sign" onmouseover="showName(this)">&#1098;</button> 
+	    <button type="button" key='92' name="&#92; Reverse Solidus" onmouseover="showName(this)">&#92;</button>    
+	    <button type="button" key='ClearAll' class="ClearAll" name="" onmouseover="showName(this)">ClearAll</button>
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" onclick="showTab('CapsLock')" class="CapsLock" name="Click to change keyboard state" onmouseover="showName(this)">Caps</button>
+	    <button type="button" key='1092' name="&#1092; Cyrillic Small Letter Ef" onmouseover="showName(this)">&#1092;</button>      
+	    <button type="button" key='1099' name="&#1099; Cyrillic Small Letter Yeru" onmouseover="showName(this)">&#1099;</button>     
+	    <button type="button" key='1074' name="&#1074; Cyrillic Small Letter Ve" onmouseover="showName(this)">&#1074;</button>      
+	    <button type="button" key='1072' name="&#1072; Cyrillic Small Letter A" onmouseover="showName(this)">&#1072;</button>      
+	    <button type="button" key='1087' name="&#1087; Cyrillic Small Letter Pe" onmouseover="showName(this)">&#1087;</button>      
+	    <button type="button" key='1088' name="&#1088; Cyrillic Small Letter Er" onmouseover="showName(this)">&#1088;</button>      
+	    <button type="button" key='1086' name="&#1086; Cyrillic Small Letter O" onmouseover="showName(this)">&#1086;</button>      
+	    <button type="button" key='1083' name="&#1083; Cyrillic Small Letter El" onmouseover="showName(this)">&#1083;</button>      
+	    <button type="button" key='1076' name="&#1076; Cyrillic Small Letter De" onmouseover="showName(this)">&#1076;</button>      
+	    <button type="button" key='1078' name="&#1078; Cyrillic Small Letter Zhe" onmouseover="showName(this)">&#1078;</button>      
+	    <button type="button" key='1101' name="&#1101; Cyrillic Small Letter E" onmouseover="showName(this)">&#1101;</button>     
+	    <button type="button" key='Enter' class="Enter" name="" onmouseover="showName(this)">Enter</button>    
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" onclick="showTab('Shift')" class="Shift" name="Click to change keyboard state" onmouseover="showName(this)">Shift</button>
+	    <button type="button" key='1103' name="&#1103; Cyrillic Small Letter Ya" onmouseover="showName(this)">&#1103;</button>      
+	    <button type="button" key='1095' name="&#1095; Cyrillic Small Letter Che" onmouseover="showName(this)">&#1095;</button>      
+	    <button type="button" key='1089' name="&#1089; Cyrillic Small Letter Es" onmouseover="showName(this)">&#1089;</button>      
+	    <button type="button" key='1084' name="&#1084; Cyrillic Small Letter Em" onmouseover="showName(this)">&#1084;</button>      
+	    <button type="button" key='1080' name="&#1080; Cyrillic Small Letter I" onmouseover="showName(this)">&#1080;</button>      
+	    <button type="button" key='1090' name="&#1090; Cyrillic Small Letter Te" onmouseover="showName(this)">&#1090;</button>      
+	    <button type="button" key='1100' name="&#1100; Cyrillic Small Letter Soft Sign" onmouseover="showName(this)">&#1100;</button> 
+	    <button type="button" key='1073' name="&#1073; Cyrillic Small Letter Be" onmouseover="showName(this)">&#1073;</button>      
+	    <button type="button" key='1102' name="&#1102; Cyrillic Small Letter Yu" onmouseover="showName(this)">&#1102;</button>      
+	    <button type="button" key='46' name="&#46; Full Stop" onmouseover="showName(this)">&#46;</button>      
+        </td>  
+    </tr>  
+    <tr>    
+	<td>      
+            <button type="button" key=' ' class="Space" name="" onmouseover="showName(this)">&nbsp;</button>      
+        </td>  
+    </tr>
+</table>
+<table id='shiftState_ru' class='noshow'>  
+    <tr>    
+	<td>      
+	    <button type="button" key='1025' name="&#1025; Cyrillic Capital Letter Io" onmouseover="showName(this)">&#1025;</button>      
+	    <button type="button" key='33' name="&#33; Exclamation Mark" onmouseover="showName(this)">&#33;</button>      
+	    <button type="button" key='34' name="&#34; Quotation Mark" onmouseover="showName(this)">&#34;</button>      
+	    <button type="button" key='8470' name="&#8470; Numero Sign" onmouseover="showName(this)">&#8470;</button>      
+	    <button type="button" key='59' name="&#59; Semicolon" onmouseover="showName(this)">&#59;</button>      
+	    <button type="button" key='37' name="&#37; Percent Sign" onmouseover="showName(this)">&#37;</button>      
+	    <button type="button" key='58' name="&#58; Colon" onmouseover="showName(this)">&#58;</button>      
+	    <button type="button" key='63' name="&#63; Question Mark" onmouseover="showName(this)">&#63;</button>      
+	    <button type="button" key='42' name="&#42; Asterisk" onmouseover="showName(this)">&#42;</button>      
+	    <button type="button" key='40' name="&#40; Left Parenthesis" onmouseover="showName(this)">&#40;</button>      
+	    <button type="button" key='41' name="&#41; Right Parenthesis" onmouseover="showName(this)">&#41;</button>      
+	    <button type="button" key='95' name="&#95; Low Line" onmouseover="showName(this)">&#95;</button>     
+	    <button type="button" key='43' name="&#43; Plus Sign" onmouseover="showName(this)">&#43;</button>      
+	    <button type="button" key='BackSp' class="BackSp" name="" onmouseover="showName(this)">BackSp</button>    
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	     <button type="button" key='1049' name="&#1049; Cyrillic Capital Letter Short I" onmouseover="showName(this)">&#1049;</button>  
+	     <button type="button" key='1062' name="&#1062; Cyrillic Capital Letter Tse" onmouseover="showName(this)">&#1062;</button>      
+	     <button type="button" key='1059' name="&#1059; Cyrillic Capital Letter U" onmouseover="showName(this)">&#1059;</button>      
+	     <button type="button" key='1050' name="&#1050; Cyrillic Capital Letter Ka" onmouseover="showName(this)">&#1050;</button>      
+	     <button type="button" key='1045' name="&#1045; Cyrillic Capital Letter Ie" onmouseover="showName(this)">&#1045;</button>      
+	     <button type="button" key='1053' name="&#1053; Cyrillic Capital Letter En" onmouseover="showName(this)">&#1053;</button>      
+	     <button type="button" key='1043' name="&#1043; Cyrillic Capital Letter Ghe" onmouseover="showName(this)">&#1043;</button>      
+	     <button type="button" key='1064' name="&#1064; Cyrillic Capital Letter Sha" onmouseover="showName(this)">&#1064;</button>     
+	     <button type="button" key='1065' name="&#1065; Cyrillic Capital Letter Shcha" onmouseover="showName(this)">&#1065;</button>   
+	     <button type="button" key='1047' name="&#1047; Cyrillic Capital Letter Ze" onmouseover="showName(this)">&#1047;</button>      
+	     <button type="button" key='1061' name="&#1061; Cyrillic Capital Letter Ha" onmouseover="showName(this)">&#1061;</button>      
+	     <button type="button" key='1066' name="&#1066; Cyrillic Capital Letter Hard Sign" onmouseover="showName(this)">&#1066;</button>
+	     <button type="button" key='47' name="&#47; Solidus" onmouseover="showName(this)">&#47;</button>    
+  	     <button type="button" key='ClearAll' class="ClearAll" name="" onmouseover="showName(this)">ClearAll</button>
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" onclick="showTab('CapsLock')" class="CapsLock" name="Click to change keyboard state" onmouseover="showName(this)">Caps</button>      
+	    <button type="button" key='1060' name="&#1060; Cyrillic Capital Letter Ef" onmouseover="showName(this)">&#1060;</button>      
+	    <button type="button" key='1067' name="&#1067; Cyrillic Capital Letter Yeru" onmouseover="showName(this)">&#1067;</button>      
+	    <button type="button" key='1042' name="&#1042; Cyrillic Capital Letter Ve" onmouseover="showName(this)">&#1042;</button>      
+	    <button type="button" key='1040' name="&#1040; Cyrillic Capital Letter A" onmouseover="showName(this)">&#1040;</button>      
+	    <button type="button" key='1055' name="&#1055; Cyrillic Capital Letter Pe" onmouseover="showName(this)">&#1055;</button>      
+	    <button type="button" key='1056' name="&#1056; Cyrillic Capital Letter Er" onmouseover="showName(this)">&#1056;</button>      
+	    <button type="button" key='1054' name="&#1054; Cyrillic Capital Letter O" onmouseover="showName(this)">&#1054;</button>      
+	    <button type="button" key='1051' name="&#1051; Cyrillic Capital Letter El" onmouseover="showName(this)">&#1051;</button>      
+	    <button type="button" key='1044' name="&#1044; Cyrillic Capital Letter De" onmouseover="showName(this)">&#1044;</button>      
+	    <button type="button" key='1046' name="&#1046; Cyrillic Capital Letter Zhe" onmouseover="showName(this)">&#1046;</button>      
+	    <button type="button" key='1069' name="&#1069; Cyrillic Capital Letter E" onmouseover="showName(this)">&#1069;</button>      
+	    <button type="button" key='Enter' class="Enter" name="" onmouseover="showName(this)">Enter</button>    
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" onclick="showTab('Shift')" class="Shift" name="Click to change keyboard state" onmouseover="showName(this)">Shift</button>
+	    <button type="button" key='1071' name="&#1071; Cyrillic Capital Letter Ya" onmouseover="showName(this)">&#1071;</button>     
+	    <button type="button" key='1063' name="&#1063; Cyrillic Capital Letter Che" onmouseover="showName(this)">&#1063;</button>      
+	    <button type="button" key='1057' name="&#1057; Cyrillic Capital Letter Es" onmouseover="showName(this)">&#1057;</button>      
+	    <button type="button" key='1052' name="&#1052; Cyrillic Capital Letter Em" onmouseover="showName(this)">&#1052;</button>      
+	    <button type="button" key='1048' name="&#1048; Cyrillic Capital Letter I" onmouseover="showName(this)">&#1048;</button>      
+	    <button type="button" key='1058' name="&#1058; Cyrillic Capital Letter Te" onmouseover="showName(this)">&#1058;</button>      
+	    <button type="button" key='1068' name="&#1068; Cyrillic Capital Letter Soft Sign" onmouseover="showName(this)">&#1068;</button> 
+	    <button type="button" key='1041' name="&#1041; Cyrillic Capital Letter Be" onmouseover="showName(this)">&#1041;</button>      
+	    <button type="button" key='1070' name="&#1070; Cyrillic Capital Letter Yu" onmouseover="showName(this)">&#1070;</button>      
+	    <button type="button" key='44' name="&#44; Comma" onmouseover="showName(this)">&#44;</button>      
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" key=' ' class="Space" name="" onmouseover="showName(this)">&nbsp;</button>     
+	</td>  
+    </tr>
+</table>
+<table id='normalStateCap_ru' class='noshow'>  
+    <tr>    
+	<td>      
+	    <button type="button" key='1025' name="&#1025; Cyrillic Capital Letter Io" onmouseover="showName(this)">&#1025;</button>      
+	    <button type="button" key='49' name="&#49; Digit One" onmouseover="showName(this)">&#49;</button>      
+	    <button type="button" key='50' name="&#50; Digit Two" onmouseover="showName(this)">&#50;</button>      
+	    <button type="button" key='51' name="&#51; Digit Three" onmouseover="showName(this)">&#51;</button>      
+	    <button type="button" key='52' name="&#52; Digit Four" onmouseover="showName(this)">&#52;</button>      
+	    <button type="button" key='53' name="&#53; Digit Five" onmouseover="showName(this)">&#53;</button>      
+	    <button type="button" key='54' name="&#54; Digit Six" onmouseover="showName(this)">&#54;</button>      
+	    <button type="button" key='55' name="&#55; Digit Seven" onmouseover="showName(this)">&#55;</button>      
+	    <button type="button" key='56' name="&#56; Digit Eight" onmouseover="showName(this)">&#56;</button>      
+	    <button type="button" key='57' name="&#57; Digit Nine" onmouseover="showName(this)">&#57;</button>      
+	    <button type="button" key='48' name="&#48; Digit Zero" onmouseover="showName(this)">&#48;</button>      
+	    <button type="button" key='45' name="&#45; Hyphen-Minus" onmouseover="showName(this)">&#45;</button>      
+	    <button type="button" key='61' name="&#61; Equals Sign" onmouseover="showName(this)">&#61;</button>      
+	    <button type="button" key='BackSp' class="BackSp" name="" onmouseover="showName(this)">BackSp</button>  
+	 </td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" key='1049' name="&#1049; Cyrillic Capital Letter Short I" onmouseover="showName(this)">&#1049;</button>  
+	    <button type="button" key='1062' name="&#1062; Cyrillic Capital Letter Tse" onmouseover="showName(this)">&#1062;</button> 
+	    <button type="button" key='1059' name="&#1059; Cyrillic Capital Letter U" onmouseover="showName(this)">&#1059;</button>      
+	    <button type="button" key='1050' name="&#1050; Cyrillic Capital Letter Ka" onmouseover="showName(this)">&#1050;</button>      
+	    <button type="button" key='1045' name="&#1045; Cyrillic Capital Letter Ie" onmouseover="showName(this)">&#1045;</button>      
+	    <button type="button" key='1053' name="&#1053; Cyrillic Capital Letter En" onmouseover="showName(this)">&#1053;</button>      
+	    <button type="button" key='1043' name="&#1043; Cyrillic Capital Letter Ghe" onmouseover="showName(this)">&#1043;</button>      
+	    <button type="button" key='1064' name="&#1064; Cyrillic Capital Letter Sha" onmouseover="showName(this)">&#1064;</button>      
+	    <button type="button" key='1065' name="&#1065; Cyrillic Capital Letter Shcha" onmouseover="showName(this)">&#1065;</button>   
+	    <button type="button" key='1047' name="&#1047; Cyrillic Capital Letter Ze" onmouseover="showName(this)">&#1047;</button>      
+	    <button type="button" key='1061' name="&#1061; Cyrillic Capital Letter Ha" onmouseover="showName(this)">&#1061;</button>      
+	    <button type="button" key='1066' name="&#1066; Cyrillic Capital Letter Hard Sign" onmouseover="showName(this)">&#1066;</button> 
+	    <button type="button" key='92' name="&#92; Reverse Solidus" onmouseover="showName(this)">&#92;</button>
+	    <button type="button" key='ClearAll' class="ClearAll" name="" onmouseover="showName(this)">ClearAll</button>  
+	 </td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" onclick="showTab('CapsLock')" class="CapsLock" name="Click to change keyboard state" onmouseover="showName(this)">Caps</button>      
+	    <button type="button" key='1060' name="&#1060; Cyrillic Capital Letter Ef" onmouseover="showName(this)">&#1060;</button>      
+	    <button type="button" key='1067' name="&#1067; Cyrillic Capital Letter Yeru" onmouseover="showName(this)">&#1067;</button>      
+	    <button type="button" key='1042' name="&#1042; Cyrillic Capital Letter Ve" onmouseover="showName(this)">&#1042;</button>      
+	    <button type="button" key='1040' name="&#1040; Cyrillic Capital Letter A" onmouseover="showName(this)">&#1040;</button>      
+	    <button type="button" key='1055' name="&#1055; Cyrillic Capital Letter Pe" onmouseover="showName(this)">&#1055;</button>      
+	    <button type="button" key='1056' name="&#1056; Cyrillic Capital Letter Er" onmouseover="showName(this)">&#1056;</button>      
+	    <button type="button" key='1054' name="&#1054; Cyrillic Capital Letter O" onmouseover="showName(this)">&#1054;</button>      
+	    <button type="button" key='1051' name="&#1051; Cyrillic Capital Letter El" onmouseover="showName(this)">&#1051;</button>      
+	    <button type="button" key='1044' name="&#1044; Cyrillic Capital Letter De" onmouseover="showName(this)">&#1044;</button>      
+	    <button type="button" key='1046' name="&#1046; Cyrillic Capital Letter Zhe" onmouseover="showName(this)">&#1046;</button>      
+	    <button type="button" key='1069' name="&#1069; Cyrillic Capital Letter E" onmouseover="showName(this)">&#1069;</button>      
+	    <button type="button" key='Enter' class="Enter" name="" onmouseover="showName(this)">Enter</button>    
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" onclick="showTab('Shift')" class="Shift" name="Click to change keyboard state" onmouseover="showName(this)">Shift</button>
+	    <button type="button" key='1071' name="&#1071; Cyrillic Capital Letter Ya" onmouseover="showName(this)">&#1071;</button>
+	    <button type="button" key='1063' name="&#1063; Cyrillic Capital Letter Che" onmouseover="showName(this)">&#1063;</button>      
+	    <button type="button" key='1057' name="&#1057; Cyrillic Capital Letter Es" onmouseover="showName(this)">&#1057;</button>      
+	    <button type="button" key='1052' name="&#1052; Cyrillic Capital Letter Em" onmouseover="showName(this)">&#1052;</button>      
+	    <button type="button" key='1048' name="&#1048; Cyrillic Capital Letter I" onmouseover="showName(this)">&#1048;</button>      
+	    <button type="button" key='1058' name="&#1058; Cyrillic Capital Letter Te" onmouseover="showName(this)">&#1058;</button>      
+	    <button type="button" key='1068' name="&#1068; Cyrillic Capital Letter Soft Sign" onmouseover="showName(this)">&#1068;</button> 
+	    <button type="button" key='1041' name="&#1041; Cyrillic Capital Letter Be" onmouseover="showName(this)">&#1041;</button> 
+	    <button type="button" key='1070' name="&#1070; Cyrillic Capital Letter Yu" onmouseover="showName(this)">&#1070;</button>      
+	    <button type="button" key='46' name="&#46; Full Stop" onmouseover="showName(this)">&#46;</button>      
+        </td>  
+    </tr>  
+    <tr>    
+	<td>      
+            <button type="button" key=' ' class="Space" name="" onmouseover="showName(this)">&nbsp;</button>    
+	</td>  
+    </tr>
+</table>
+<table id='shiftStateCap_ru' style='display:none'>  
+    <tr>    
+	<td>      
+	    <button type="button" key='1105' name="&#1105; Cyrillic Small Letter Io" onmouseover="showName(this)">&#1105;</button>      
+	    <button type="button" key='33' name="&#33; Exclamation Mark" onmouseover="showName(this)">&#33;</button>      
+	    <button type="button" key='34' name="&#34; Quotation Mark" onmouseover="showName(this)">&#34;</button>      
+	    <button type="button" key='8470' name="&#8470; Numero Sign" onmouseover="showName(this)">&#8470;</button>      
+	    <button type="button" key='59' name="&#59; Semicolon" onmouseover="showName(this)">&#59;</button>      
+	    <button type="button" key='37' name="&#37; Percent Sign" onmouseover="showName(this)">&#37;</button>      
+	    <button type="button" key='58' name="&#58; Colon" onmouseover="showName(this)">&#58;</button>      
+	    <button type="button" key='63' name="&#63; Question Mark" onmouseover="showName(this)">&#63;</button>      
+	    <button type="button" key='42' name="&#42; Asterisk" onmouseover="showName(this)">&#42;</button>      
+	    <button type="button" key='40' name="&#40; Left Parenthesis" onmouseover="showName(this)">&#40;</button>      
+	    <button type="button" key='41' name="&#41; Right Parenthesis" onmouseover="showName(this)">&#41;</button>      
+	    <button type="button" key='95' name="&#95; Low Line" onmouseover="showName(this)">&#95;</button>      
+	    <button type="button" key='43' name="&#43; Plus Sign" onmouseover="showName(this)">&#43;</button>      
+	    <button type="button" key='BackSp' class="BackSp" name="" onmouseover="showName(this)">BackSp</button>    
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" key='1081' name="&#1081; Cyrillic Small Letter Short I" onmouseover="showName(this)">&#1081;</button> 
+	    <button type="button" key='1094' name="&#1094; Cyrillic Small Letter Tse" onmouseover="showName(this)">&#1094;</button>      
+	    <button type="button" key='1091' name="&#1091; Cyrillic Small Letter U" onmouseover="showName(this)">&#1091;</button>      
+	    <button type="button" key='1082' name="&#1082; Cyrillic Small Letter Ka" onmouseover="showName(this)">&#1082;</button>      
+	    <button type="button" key='1077' name="&#1077; Cyrillic Small Letter Ie" onmouseover="showName(this)">&#1077;</button>      
+	    <button type="button" key='1085' name="&#1085; Cyrillic Small Letter En" onmouseover="showName(this)">&#1085;</button>      
+	    <button type="button" key='1075' name="&#1075; Cyrillic Small Letter Ghe" onmouseover="showName(this)">&#1075;</button>      
+	    <button type="button" key='1096' name="&#1096; Cyrillic Small Letter Sha" onmouseover="showName(this)">&#1096;</button>      
+	    <button type="button" key='1097' name="&#1097; Cyrillic Small Letter Shcha" onmouseover="showName(this)">&#1097;</button>      
+	    <button type="button" key='1079' name="&#1079; Cyrillic Small Letter Ze" onmouseover="showName(this)">&#1079;</button>      
+	    <button type="button" key='1093' name="&#1093; Cyrillic Small Letter Ha" onmouseover="showName(this)">&#1093;</button>      
+	    <button type="button" key='1098' name="&#1098; Cyrillic Small Letter Hard Sign" onmouseover="showName(this)">&#1098;</button>  
+	    <button type="button" key='47' name="&#47; Solidus" onmouseover="showName(this)">&#47;</button>    
+	    <button type="button" key='ClearAll' class="ClearAll" name="" onmouseover="showName(this)">ClearAll</button>
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" onclick="showTab('CapsLock')" class="CapsLock" name="Click to change keyboard state" onmouseover="showName(this)">Caps</button> 
+	    <button type="button" key='1092' name="&#1092; Cyrillic Small Letter Ef" onmouseover="showName(this)">&#1092;</button>     
+	    <button type="button" key='1099' name="&#1099; Cyrillic Small Letter Yeru" onmouseover="showName(this)">&#1099;</button>      
+	    <button type="button" key='1074' name="&#1074; Cyrillic Small Letter Ve" onmouseover="showName(this)">&#1074;</button>      
+	    <button type="button" key='1072' name="&#1072; Cyrillic Small Letter A" onmouseover="showName(this)">&#1072;</button>      
+	    <button type="button" key='1087' name="&#1087; Cyrillic Small Letter Pe" onmouseover="showName(this)">&#1087;</button>      
+	    <button type="button" key='1088' name="&#1088; Cyrillic Small Letter Er" onmouseover="showName(this)">&#1088;</button>      
+	    <button type="button" key='1086' name="&#1086; Cyrillic Small Letter O" onmouseover="showName(this)">&#1086;</button>      
+	    <button type="button" key='1083' name="&#1083; Cyrillic Small Letter El" onmouseover="showName(this)">&#1083;</button>      
+	    <button type="button" key='1076' name="&#1076; Cyrillic Small Letter De" onmouseover="showName(this)">&#1076;</button>      
+	    <button type="button" key='1078' name="&#1078; Cyrillic Small Letter Zhe" onmouseover="showName(this)">&#1078;</button>      
+	    <button type="button" key='1101' name="&#1101; Cyrillic Small Letter E" onmouseover="showName(this)">&#1101;</button>      
+	    <button type="button" key='Enter' class="Enter" name="" onmouseover="showName(this)">Enter</button>    
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	    <button type="button" onclick="showTab('Shift')" class="Shift" name="Click to change keyboard state" onmouseover="showName(this)">Shift</button>
+	    <button type="button" key='1103' name="&#1103; Cyrillic Small Letter Ya" onmouseover="showName(this)">&#1103;</button>  
+	    <button type="button" key='1095' name="&#1095; Cyrillic Small Letter Che" onmouseover="showName(this)">&#1095;</button>      
+	    <button type="button" key='1089' name="&#1089; Cyrillic Small Letter Es" onmouseover="showName(this)">&#1089;</button>     
+	    <button type="button" key='1084' name="&#1084; Cyrillic Small Letter Em" onmouseover="showName(this)">&#1084;</button>      
+	    <button type="button" key='1080' name="&#1080; Cyrillic Small Letter I" onmouseover="showName(this)">&#1080;</button>      
+	    <button type="button" key='1090' name="&#1090; Cyrillic Small Letter Te" onmouseover="showName(this)">&#1090;</button>      
+	    <button type="button" key='1100' name="&#1100; Cyrillic Small Letter Soft Sign" onmouseover="showName(this)">&#1100;</button>
+	    <button type="button" key='1073' name="&#1073; Cyrillic Small Letter Be" onmouseover="showName(this)">&#1073;</button>      
+	    <button type="button" key='1102' name="&#1102; Cyrillic Small Letter Yu" onmouseover="showName(this)">&#1102;</button>      
+	    <button type="button" key='44' name="&#44; Comma" onmouseover="showName(this)">&#44;</button>      
+	</td>  
+    </tr>  
+    <tr>    
+	<td>      
+	         <button type="button" key=' ' class="Space" name="" onmouseover="showName(this)">&nbsp;</button>      
+        </td>  
+    </tr>
+</table>
+    	
+    </td>
+</tr>
+</table>
+<br><br>
+</div>
+<br>
+</body>
+</html>
