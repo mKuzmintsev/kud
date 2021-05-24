@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu } from 'antd';
-import Harting from '../Harting/Harting';
 import { useHistory } from 'react-router-dom';
 
 import parser from 'fast-xml-parser';
@@ -32,6 +31,7 @@ const MainMenu = () => {
     const xml = await res.text();
 
     const data = xml && parser.parse(xml).root.device;
+    console.log(data);
     let renderItems = [];
 
     renderItems = getItemsFromJson(data).map(({ UUID, friendlyName }) => (

@@ -142,39 +142,75 @@ function Harting() {
           })}
         </Descriptions>
         {switchData.name !== 'K' ? (
-          <Button
-            type="primary"
-            loading={loading}
-            className={styles.button}
-            onClick={() => configureSwitch(switchData)}>
-            Настроить
-          </Button>
+          <>
+            <Button
+              type="primary"
+              loading={loading}
+              className={styles.button}
+              onClick={() => configureSwitch(switchData)}>
+              Настроить
+            </Button>
+            <Button
+              type="primary"
+              loading={loading}
+              className={styles.button}
+              onClick={() => getInfo(switchData)}>
+              Сбор информации
+            </Button>
+          </>
         ) : null}
       </div>
     );
   };
-  const str =
-    'sets IP-address 10.241.61.192 with mask 255.255.0.0.... creating VLANs... id=1, name=global, member ports=[1,2,3,4,5,7,8,9,10], untagged ports=[1,2,3,4,5,7,8,9,10] id=10, name=gwm, member ports=[1,2,6,9,10], untagged ports=[6] id=11, name=gws, member ports=[1,2,6,9,10], untagged ports=[0] id=12, name=gwp, member ports=[1,2,6,9,10], untagged ports=[0] id=13, name=server, member ports=[1,2,9,10], untagged ports=[0] Wrong connection! Configuring fail!';
 
   const configureSwitch = async (switchData) => {
-    // showNotification('error', str.split('\n'));
     setLoading(true);
 
-    const res = await fetch(`/cgi-bin/harting_conf_61-4447.07_${switchData.name}.sh`, {
+    const res = await fetch(`/cgi-bin/harting_conf_${switchData.name}.sh`, {
       method: 'POST',
       body: switchData.ip,
     });
     const data = await res.text();
 
+    setLoading(false);
+    showNotification('warning', data.split('\n'));
+  };
+
+  const getInfo = async (switchData) => {
+    setLoading(true);
+
+    const res = await fetch(`/cgi-bin/harting_info.sh`, {
+      method: 'POST',
+      // body: '192.168.0.5',
+      body: switchData.ip,
+    });
+    const data = await res.text();
+
     console.log(data);
-    console.log(data.split('\n'));
 
     setLoading(false);
-    showNotification('error', data.split('\n'));
+    showNotification('warning', data.split('\n'));
+  };
+  const checkLan = async () => {
+    setLoading(true);
+
+    const res = await fetch(`/cgi-bin/harting_check_LAN.sh`, {
+      method: 'GET',
+      // body: switchData.ip,
+    });
+    const data = await res.text();
+
+    console.log(data);
+
+    setLoading(false);
+    showNotification('warning', data.split('\n'));
   };
 
   return (
     <div className={styles.root}>
+      <Button type="primary" loading={loading} className={styles.button} onClick={checkLan}>
+        Проверка соединений
+      </Button>
       <Row align="stretch" gutter={[16, 16]}>
         {renderCards()}
       </Row>
