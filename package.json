@@ -2,22 +2,29 @@
   "name": "kud-react",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://10.7.254.254:80",
+  "proxy": "http://10.7.254.254:8080",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "antd": "^4.3.3",
+    "antd": "4.10.0",
+    "axios": "^0.21.1",
+    "bootstrap": "4.6.0",
     "fast-xml-parser": "^3.17.4",
     "http-proxy-middleware": "^1.0.4",
     "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
+    "react-app-polyfill": "^2.0.0",
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "^17.0.2",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "4.0.3",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "typescript": "^4.2.4",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,7 +39,8 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "Firefox > 20"
     ],
     "development": [
       "last 1 chrome version",
@@ -41,6 +49,9 @@
     ]
   },
   "devDependencies": {
+    "@types/react-redux": "^7.1.16",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/uuid": "^8.3.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "prettier": "^2.0.5"

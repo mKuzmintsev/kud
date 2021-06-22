@@ -1,8 +1,11 @@
 .root {
   display: flex;
   align-items: center;
-  height: 64px;
-  padding: 0 50px;
+  max-width: 1024px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  padding: 0 32px;
   background-color: rgba(#000000, 0.3);
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Slider, InputNumber } from 'antd';
 
-function AllowedValueRange({ min, max, step, label, namePath, serviceName }) {
+function AllowedValueRange({ min, max, step, label, namePath, serviceName }: any) {
   const [value, setValue] = useState(10);
 
   const onChange = (value) => {

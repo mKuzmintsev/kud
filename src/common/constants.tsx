@@ -1,0 +1,1 @@
+export const GET_SERVICES_INTERVAL = 30000;

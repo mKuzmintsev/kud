@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Select } from 'antd';
 
-function AllowedValueList({ optionList, label, namePath, serviceName }) {
+function AllowedValueList({ optionList, label, namePath, serviceName }: any) {
   return (
     <Form.Item name={namePath} label={label} style={{ marginBottom: 5 }}>
       <Select placeholder="" allowClear size="small" style={{ minWidth: 150 }}>
